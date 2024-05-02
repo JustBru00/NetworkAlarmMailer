@@ -1,0 +1,15 @@
+device:
+   name: 'DeviceNameNotSet'
+   location: 'LocationNotSet'
+   
+email:
+   username: 'username'   
+   password: 'password'
+   address: 'email@server.com'
+   server_host: 'smtp.server.com'
+   port: 587
+   high_temp_alarm_html: 'High Temp Alarm HTML Here'
+   low_temp_alarm_html: 'Low Temp Alarm HTML Here'
+
+global_receiver_addresses:
+   - 'email@server.com'
