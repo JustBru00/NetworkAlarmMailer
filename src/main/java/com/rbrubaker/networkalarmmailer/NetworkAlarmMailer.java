@@ -1,17 +1,18 @@
 package com.rbrubaker.networkalarmmailer;
 
+import java.time.Duration;
 import java.time.Instant;
 
 public class NetworkAlarmMailer {
 	
 	public static boolean running = true;
-	public static final String VERSION = "Version 0.3.0";	
+	public static final String VERSION = "Version 1.0.0-SNAPSHOT";
 	private static Instant lastUpdate;	
 
 	public static void main(String[] args) {
 		System.out.println("NetworkAlarmMailer " + VERSION);
 		System.out.println("NetworkAlarmMailer - A program that monitors network variables and/or alarm statuses on supported controllers to provide alarm emails.\r\n"
-				+ "*   Copyright (C) 2024 Rufus Brubaker Refrigeration LLC\r\n"
+				+ "*   Copyright (C) 2025 Rufus Brubaker Refrigeration LLC\r\n"
 				+ "*\r\n"
 				+ "*   This program is free software: you can redistribute it and/or modify\r\n"
 				+ "*   it under the terms of the GNU General Public License as published by\r\n"
@@ -42,7 +43,19 @@ public class NetworkAlarmMailer {
 	        }
 	    });
 		
-		// TODO
+		if (!ConfigReader.loadConfig()) {
+			return;
+		}
+
+		// Wait a while -> Poll network controllers -> Check values against alarm config -> Send email alarms
+		if (lastUpdate == null) {
+			lastUpdate = Instant.now();
+		}
+
+		// Every 5 minutes
+		if (Duration.between(lastUpdate, Instant.now()).getSeconds() >= 300) {
+
+		}
 
 	}
 

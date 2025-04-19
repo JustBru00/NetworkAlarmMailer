@@ -40,8 +40,8 @@
 			<version>4.2.3</version>
 		</dependency>
 		<dependency>
-			<groupId>com.rbrubaker</groupId>
-			<artifactId>e2e4j</artifactId>
+			<groupId>com.github.JustBru00</groupId>
+			<artifactId>E2e4J</artifactId>
 			<version>0.1.0</version>
 		</dependency>
 		<dependency>
