@@ -8,8 +8,28 @@ email:
    address: 'email@server.com'
    server_host: 'smtp.server.com'
    port: 587
-   high_temp_alarm_html: 'High Temp Alarm HTML Here'
-   low_temp_alarm_html: 'Low Temp Alarm HTML Here'
 
 global_receiver_addresses:
    - 'email@server.com'
+
+network_controllers:
+   internal_controller_name:
+      ip_address: ''
+      port: '' # If not present, default port will be assumed.
+      alarm_settings:
+         alarm_type_value:
+            type: VALUE
+            email_addresses: # If not present, we will use the global receiver addresses
+               - ''
+            delay_in_minutes: 60
+            trip_setpoint: 66.0 # A double to allow different units
+            trip_type: # GREATER_THAN, LESS_THAN, EQUAL_TO
+            value_units: #PSI, F, C etc
+            description: 'A description of the alarm for the alarm emails.'
+         alarm_type_alarm_match:
+            type: ALARM_MATCH
+            email_addresses: # If not present, we will use the global receiver addresses
+               - ''
+            delay_in_minutes: 60
+            trip_string: 'PROOF FAIL' # A string that will be looked for in the alarm list
+            description: 'A description of the alarm for the alarm emails.'
